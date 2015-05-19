@@ -13,6 +13,9 @@
     2 means /
     3 means \
 */
+/*
+    ATTENTION, the position should be maze[y][x]
+*/
 char maze[MAP_HEIGHT][MAP_WIDTH] = {
                      "000001000000",
                      "111111111110",
@@ -68,8 +71,52 @@ int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y)
 
 int go(int x, int y)
 {
-    maze[x][y] += 3; /* 3 is only a magic number */
+    int next[8] = {0};
+    /* 0.right, 1.top-right, 2.top, 3.top-left, 4.left, 5.bottom-left, 6.bottom, 7.bottom-right; */
 
+    maze[y][x] += 3;  /* 3 is only a magic number */
+
+    /* scan */
+    /* 0 */
+    if(x!=MAP_WIDTH-1 && maze[y][x+1]=='1')
+    {
+        next[0] = 1;
+    }
+    /* 1 */
+    if(x!=MAP_WIDTH-1 && y!=0 && maze[y-1][x+1]=='2')
+    {
+        next[1] = 1;
+    }
+    /* 2 */
+    if(y!=0 && maze[y-1][x]=='1')
+    {
+        next[2] = 1;
+    }
+    /* 3 */
+    if(x!=0 && y!=0 && maze[y-1][x-1]=='3')
+    {
+        next[3] = 1;
+    }
+    /* 4 */
+    if(x!=0 && maze[y][x-1]=='1')
+    {
+        next[4] = 1;
+    }
+    /* 5 */
+    if(x!=0 && y!=MAP_HEIGHT-1 && maze[y+1][x-1]=='2')
+    {
+        next[5] = 1;
+    }
+    /* 6 */
+    if(y!=MAP_HEIGHT-1 && maze[y+1][x]=='1')
+    {
+        next[6] = 1;
+    }
+    /* 7 */
+    if(x!=MAP_WIDTH-1 && y!=MAP_HEIGHT-1 && maze[y+1][x+1]=='3')
+    {
+        next[7] = 1;
+    }
 }
 
 
