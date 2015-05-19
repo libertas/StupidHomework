@@ -70,13 +70,42 @@ int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y)
 }
 
 
+int nextStep(int orientation, int x, int y)
+{
+    switch (orientation)
+    {
+        case 0: go(x+1, y);  break;
+        case 1: go(x+1, y-1);  break;
+        case 2: go(x, y-1);  break;
+        case 3: go(x-1, y-1);  break;
+        case 4: go(x-1, y);  break;
+        case 5: go(x-1, y+1);  break;
+        case 6: go(x, y+1);  break;
+        case 7: go(x+1, y+1);  break;
+    }
+    return 0;
+}
+
+
 /*  Moving */
 int go(int x, int y)
 {
+    int i, j;
     if(x==END_X && y==END_Y)
+    {
+        printf("\nArriving:\n");
+        for(i=0; i<MAP_HEIGHT; i++)
+        {
+            for(j=0; j<MAP_WIDTH; j++)
+            {
+                printf("%c", maze[i][j]);
+            }
+            printf("\n");
+        }
         return 1;  /* Arrive */
+    }
 
-    int i, next[8] = {0};
+    int next[8] = {0};
     /* 0.right, 1.top-right, 2.top, 3.top-left, 4.left, 5.bottom-left, 6.bottom, 7.bottom-right; */
 
     if(maze[y][x]!='0')
@@ -133,21 +162,19 @@ int go(int x, int y)
     if(posibleWays==1)
     {
         for(i=0; next[i]!=1; i++);
-        switch (i)
-        {
-            case 0: go(x+1, y);  break;
-            case 1: go(x+1, y-1);  break;
-            case 2: go(x, y-1);  break;
-            case 3: go(x-1, y-1);  break;
-            case 4: go(x-1, y);  break;
-            case 5: go(x-1, y+1);  break;
-            case 6: go(x, y+1);  break;
-            case 7: go(x+1, y+1);  break;
-        }
+        nextStep(i, x, y);
     }
     else if(posibleWays>1 && posibleWays<8)
     {
-
+        for(i=0; i<8; i++)
+        {
+            if(next[i]==1)
+            {
+                push(maze, x, y);
+                nextStep(i, x, y);
+                pop(maze, &x, &y);
+            }
+        }
     }
     else
         return -2;  /* Error: no way to go */
@@ -158,12 +185,5 @@ int main()
 {
     int i, j;
     go(START_X, START_Y);
-    for(i=0; i<MAP_HEIGHT; i++)
-    {
-        for(j=0; j<MAP_WIDTH; j++)
-        {
-
-        }
-    }
     return 0;
 }
