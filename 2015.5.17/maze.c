@@ -87,21 +87,29 @@ int nextStep(int orientation, int x, int y)
 }
 
 
+void printMap()
+{
+    int i, j;
+    for(i=0; i<MAP_HEIGHT; i++)
+    {
+        for(j=0; j<MAP_WIDTH; j++)
+        {
+            printf("%c", maze[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
 /*  Moving */
 int go(int x, int y)
 {
-    int i, j;
+    int i;
     if(x==END_X && y==END_Y)
     {
+        maze[y][x] = 'E';  /* Mark the arriving */
         printf("\nArriving:\n");
-        for(i=0; i<MAP_HEIGHT; i++)
-        {
-            for(j=0; j<MAP_WIDTH; j++)
-            {
-                printf("%c", maze[i][j]);
-            }
-            printf("\n");
-        }
+        printMap();
         return 1;  /* Arrive */
     }
 
@@ -183,7 +191,6 @@ int go(int x, int y)
 
 int main()
 {
-    int i, j;
     go(START_X, START_Y);
     return 0;
 }
