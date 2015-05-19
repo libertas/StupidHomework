@@ -89,15 +89,15 @@ int nextStep(int orientation, int x, int y, int nodes)
 }
 
 
-void printMap(int nodes)
+void printMap(char m[MAP_HEIGHT][MAP_WIDTH], int nodes)
 {
-    printf("There are %d nods\n", nodes);
+    printf("There are %d nods.\n", nodes);
     int i, j;
     for(i=0; i<MAP_HEIGHT; i++)
     {
         for(j=0; j<MAP_WIDTH; j++)
         {
-            printf("%c", maze[i][j]);
+            printf("%c", m[i][j]);
         }
         printf("\n");
     }
@@ -110,7 +110,18 @@ int resultNodes = -1;
 
 int saveResult(char m[MAP_HEIGHT][MAP_WIDTH], int nodes)
 {
-
+    int i, j;
+    if(resultNodes==-1 || nodes<resultNodes)
+    {
+        resultNodes = nodes;
+        for(i=0; i<MAP_HEIGHT; i++)
+        {
+            for(j=0; j<MAP_WIDTH; j++)
+            {
+                resultMap[i][j] = m[i][j];
+            }
+        }
+    }
 }
 
 
@@ -122,8 +133,7 @@ int go(int x, int y, int nodes)
     if(x==END_X && y==END_Y)
     {
         maze[y][x] = 'E';  /* Mark the arriving */
-        printf("\nArriving:\n");
-        printMap(nodes);
+        saveResult(maze, nodes);
         return 1;  /* Arrive */
     }
 
@@ -219,5 +229,7 @@ int go(int x, int y, int nodes)
 int main()
 {
     go(START_X, START_Y, 0);
+    printf("The shortest route is the following one:\n");
+    printMap(resultMap, resultNodes);
     return 0;
 }
