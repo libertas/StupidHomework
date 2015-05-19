@@ -30,6 +30,7 @@ char maze[MAP_HEIGHT][MAP_WIDTH] = {
                      "000000011110"};
 
 
+/* Stack */
 char stack[N][MAP_HEIGHT][MAP_WIDTH] = {0};
 int stack_x[N] = {0}, stack_y[N] = {0};
 int count = 0;
@@ -69,12 +70,19 @@ int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y)
 }
 
 
+/*  Moving */
 int go(int x, int y)
 {
-    int next[8] = {0};
+    if(x==END_X && y==END_Y)
+        return 1;  /* Arrive */
+
+    int i, next[8] = {0};
     /* 0.right, 1.top-right, 2.top, 3.top-left, 4.left, 5.bottom-left, 6.bottom, 7.bottom-right; */
 
-    maze[y][x] += 3;  /* 3 is only a magic number */
+    if(maze[y][x]!='0')
+        maze[y][x] += 3;  /* 3 is only a magic number */
+    else
+        return -1;  /* Error: tring to walk on walls */
 
     /* scan */
     /* 0 */
@@ -117,12 +125,39 @@ int go(int x, int y)
     {
         next[7] = 1;
     }
+
+    int posibleWays = 0;
+    for(i=0; i<8; i++)
+        if(next[i]==1)
+            posibleWays++;
+    if(posibleWays==1)
+    {
+        for(i=0; next[i]!=1; i++);
+        switch (i)
+        {
+            case 0: go(x+1, y);  break;
+            case 1: go(x+1, y-1);  break;
+            case 2: go(x, y-1);  break;
+            case 3: go(x-1, y-1);  break;
+            case 4: go(x-1, y);  break;
+            case 5: go(x-1, y+1);  break;
+            case 6: go(x, y+1);  break;
+            case 7: go(x+1, y+1);  break;
+        }
+    }
+    else if(posibleWays>1 && posibleWays<8)
+    {
+
+    }
+    else
+        return -2;  /* Error: no way to go */
 }
 
 
 int main()
 {
     int i, j;
+    go(START_X, START_Y);
     for(i=0; i<MAP_HEIGHT; i++)
     {
         for(j=0; j<MAP_WIDTH; j++)
