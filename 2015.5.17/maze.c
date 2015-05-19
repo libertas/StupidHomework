@@ -140,7 +140,7 @@ int go(int x, int y, int nodes)
     {
         if(maze[y][x]=='1' && maze[y-1][x+1]=='2')
             next[1] = 1;
-        else if(maze[y][x]=='2' && maze[y-1][x+1]!='0')
+        else if(maze[y][x]=='2' && maze[y-1][x+1]<'4' && maze[y-1][x+1]>'0')
             next[1] = 1;
     }
     /* 2 */
@@ -153,7 +153,7 @@ int go(int x, int y, int nodes)
     {
         if(maze[y][x]=='1' && maze[y-1][x-1]=='3')
             next[3] = 1;
-        else if(maze[y][x]=='3' && maze[y-1][x-1]!='0')
+        else if(maze[y][x]=='3' && maze[y-1][x-1]<'4' && maze[y-1][x-1]>'0')
             next[3] = 1;
     }
     /* 4 */
@@ -166,7 +166,7 @@ int go(int x, int y, int nodes)
     {
         if(maze[y][x]=='1' && maze[y+1][x-1]=='2')
             next[5] = 1;
-        else if(maze[y][x]=='2' && maze[y+1][x-1]!='0')
+        else if(maze[y][x]=='2' && maze[y+1][x-1]<'4' && maze[y+1][x-1]>'0')
             next[5] = 1;
     }
     /* 6 */
@@ -179,7 +179,7 @@ int go(int x, int y, int nodes)
     {
         if(maze[y][x]=='1'&& maze[y+1][x+1]=='3')
             next[7] = 1;
-        else if(maze[y][x]=='3' && maze[y+1][x+1]!='0')
+        else if(maze[y][x]=='3' && maze[y+1][x+1]<'4' && maze[y+1][x+1]>'0')
             next[7] = 1;
     }
 
