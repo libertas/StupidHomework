@@ -115,42 +115,42 @@ int go(int x, int y)
 
     /* scan */
     /* 0 */
-    if(x!=MAP_WIDTH-1 && maze[y][x+1]=='1')
+    if(x!=MAP_WIDTH-1 && maze[y][x+1]=='1' && maze[y][x]=='1')
     {
         next[0] = 1;
     }
     /* 1 */
-    if(x!=MAP_WIDTH-1 && y!=0 && maze[y-1][x+1]=='2')
+    if(x!=MAP_WIDTH-1 && y!=0 && maze[y-1][x+1]=='2' && maze[y][x]=='2')
     {
         next[1] = 1;
     }
     /* 2 */
-    if(y!=0 && maze[y-1][x]=='1')
+    if(y!=0 && maze[y-1][x]=='1' && maze[y][x]=='1')
     {
         next[2] = 1;
     }
     /* 3 */
-    if(x!=0 && y!=0 && maze[y-1][x-1]=='3')
+    if(x!=0 && y!=0 && maze[y-1][x-1]=='3' && maze[y][x]=='3')
     {
         next[3] = 1;
     }
     /* 4 */
-    if(x!=0 && maze[y][x-1]=='1')
+    if(x!=0 && maze[y][x-1]=='1' && maze[y][x]=='1')
     {
         next[4] = 1;
     }
     /* 5 */
-    if(x!=0 && y!=MAP_HEIGHT-1 && maze[y+1][x-1]=='2')
+    if(x!=0 && y!=MAP_HEIGHT-1 && maze[y+1][x-1]=='2' && maze[y][x]=='2')
     {
         next[5] = 1;
     }
     /* 6 */
-    if(y!=MAP_HEIGHT-1 && maze[y+1][x]=='1')
+    if(y!=MAP_HEIGHT-1 && maze[y+1][x]=='1' && maze[y][x]=='1')
     {
         next[6] = 1;
     }
     /* 7 */
-    if(x!=MAP_WIDTH-1 && y!=MAP_HEIGHT-1 && maze[y+1][x+1]=='3')
+    if(x!=MAP_WIDTH-1 && y!=MAP_HEIGHT-1 && maze[y+1][x+1]=='3' && maze[y][x]=='3')
     {
         next[7] = 1;
     }
