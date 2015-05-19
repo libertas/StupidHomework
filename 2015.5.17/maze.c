@@ -107,12 +107,6 @@ int go(int x, int y)
 
     int next[8] = {0};
     /* 0.right, 1.top-right, 2.top, 3.top-left, 4.left, 5.bottom-left, 6.bottom, 7.bottom-right; */
-
-    if(maze[y][x]!='0')
-        maze[y][x] += 3;  /* 3 is only a magic number */
-    else
-        return -1;  /* Error: tring to walk on walls */
-
     /* scan */
     /* 0 */
     if(x!=MAP_WIDTH-1 && maze[y][x+1]=='1' && maze[y][x]=='1')
@@ -154,6 +148,12 @@ int go(int x, int y)
     {
         next[7] = 1;
     }
+
+    /* Make marks on the route */
+    if(maze[y][x]!='0')
+        maze[y][x] += 3;  /* 3 is only a magic number */
+    else
+        return -1;  /* Error: tring to walk on walls */
 
     int posibleWays = 0;
     for(i=0; i<8; i++)
