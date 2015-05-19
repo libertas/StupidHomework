@@ -32,11 +32,11 @@ char maze[MAP_HEIGHT][MAP_WIDTH] = {
 
 /* Stack */
 char stack[N][MAP_HEIGHT][MAP_WIDTH] = {0};
-int stack_x[N] = {0}, stack_y[N] = {0};
+int stack_x[N] = {0}, stack_y[N] = {0}, nodeCounter[N] = {0};
 int count = 0;
 
 
-int push(char m[MAP_HEIGHT][MAP_WIDTH], int x, int y)
+int push(char m[MAP_HEIGHT][MAP_WIDTH], int x, int y, int nodes)
 {
     int i, j;
     for(i=0; i<MAP_HEIGHT; i++)
@@ -48,12 +48,13 @@ int push(char m[MAP_HEIGHT][MAP_WIDTH], int x, int y)
     }
     stack_x[count] = x;
     stack_y[count] = y;
+    nodeCounter[count] = nodes;
     count++;
     return 0;
 }
 
 
-int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y)
+int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y, int *nodes)
 {
     int i, j;
     count--;
@@ -66,29 +67,31 @@ int pop(char m[MAP_HEIGHT][MAP_WIDTH], int *x, int *y)
     }
     *x = stack_x[count];
     *y = stack_y[count];
+    *nodes = nodeCounter[count];
     return 0;
 }
 
-
-int nextStep(int orientation, int x, int y)
+/* Functions */
+int nextStep(int orientation, int x, int y, int nodes)
 {
     switch (orientation)
     {
-        case 0: go(x+1, y);  break;
-        case 1: go(x+1, y-1);  break;
-        case 2: go(x, y-1);  break;
-        case 3: go(x-1, y-1);  break;
-        case 4: go(x-1, y);  break;
-        case 5: go(x-1, y+1);  break;
-        case 6: go(x, y+1);  break;
-        case 7: go(x+1, y+1);  break;
+        case 0: go(x+1, y, nodes);  break;
+        case 1: go(x+1, y-1, nodes);  break;
+        case 2: go(x, y-1, nodes);  break;
+        case 3: go(x-1, y-1, nodes);  break;
+        case 4: go(x-1, y, nodes);  break;
+        case 5: go(x-1, y+1, nodes);  break;
+        case 6: go(x, y+1, nodes);  break;
+        case 7: go(x+1, y+1, nodes);  break;
     }
     return 0;
 }
 
 
-void printMap()
+void printMap(int nodes)
 {
+    printf("There are %d nods\n", nodes);
     int i, j;
     for(i=0; i<MAP_HEIGHT; i++)
     {
@@ -101,15 +104,26 @@ void printMap()
 }
 
 
+char resultMap[MAP_HEIGHT][MAP_WIDTH] = {0};
+int resultNodes = -1;
+
+
+int saveResult(char m[MAP_HEIGHT][MAP_WIDTH], int nodes)
+{
+
+}
+
+
+
 /*  Moving */
-int go(int x, int y)
+int go(int x, int y, int nodes)
 {
     int i;
     if(x==END_X && y==END_Y)
     {
         maze[y][x] = 'E';  /* Mark the arriving */
         printf("\nArriving:\n");
-        printMap();
+        printMap(nodes);
         return 1;  /* Arrive */
     }
 
@@ -182,17 +196,18 @@ int go(int x, int y)
     if(posibleWays==1)
     {
         for(i=0; next[i]!=1; i++);
-        nextStep(i, x, y);
+        nextStep(i, x, y, nodes);
     }
     else if(posibleWays>1 && posibleWays<8)
     {
+        nodes++;
         for(i=0; i<8; i++)
         {
             if(next[i]==1)
             {
-                push(maze, x, y);
-                nextStep(i, x, y);
-                pop(maze, &x, &y);
+                push(maze, x, y, nodes);
+                nextStep(i, x, y, nodes);
+                pop(maze, &x, &y, &nodes);
             }
         }
     }
@@ -203,6 +218,6 @@ int go(int x, int y)
 
 int main()
 {
-    go(START_X, START_Y);
+    go(START_X, START_Y, 0);
     return 0;
 }
