@@ -91,7 +91,7 @@ int nextStep(int orientation, int x, int y, int nodes)
 
 void printMap(char m[MAP_HEIGHT][MAP_WIDTH], int nodes)
 {
-    printf("There are %d nods.\n", nodes);
+    printf("There are %d nodes.\n", nodes);
     int i, j;
     for(i=0; i<MAP_HEIGHT; i++)
     {
