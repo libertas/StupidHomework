@@ -52,6 +52,7 @@ BEGIN_MESSAGE_MAP(CCalcDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON12, OnButton12)
 	ON_BN_CLICKED(IDC_BUTTON13, OnButton13)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
+	ON_BN_CLICKED(IDC_BUTTON16, OnButton16)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -375,6 +376,22 @@ void CCalcDlg::OnChangeEdit1()
 	// function and call CRichEditCtrl().SetEventMask()
 	// with the ENM_CHANGE flag ORed into the mask.
 	
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CCalcDlg::OnButton16() 
+{
+	CWnd *editText = GetDlgItem(IDC_EDIT1);
+	CString s;
+	CString num("0");
+	editText->GetWindowText(s);
+	CString zero("0");
+	if(s != zero)
+		s = s + num;
+	else
+		s = num;
+	editText->SetWindowText(s);
 	// TODO: Add your control notification handler code here
 	
 }
