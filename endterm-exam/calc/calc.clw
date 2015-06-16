@@ -34,7 +34,7 @@ VirtualFilter=dWC
 [DLG:IDD_CALC_DIALOG]
 Type=1
 Class=CCalcDlg
-ControlCount=18
+ControlCount=19
 Control1=IDC_EDIT1,edit,1350631552
 Control2=IDC_BUTTON1,button,1342242816
 Control3=IDC_BUTTON2,button,1342242816
@@ -53,4 +53,5 @@ Control15=IDC_BUTTON14,button,1342242816
 Control16=IDC_BUTTON15,button,1342242816
 Control17=IDC_BUTTON16,button,1342242816
 Control18=IDC_BUTTON17,button,1342242816
+Control19=IDC_BUTTON18,button,1342242816
 
