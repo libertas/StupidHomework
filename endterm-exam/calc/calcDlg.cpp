@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CCalcDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON13, OnButton13)
 	ON_EN_CHANGE(IDC_EDIT1, OnChangeEdit1)
 	ON_BN_CLICKED(IDC_BUTTON16, OnButton16)
+	ON_BN_CLICKED(IDC_BUTTON17, OnButton17)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -392,6 +393,21 @@ void CCalcDlg::OnButton16()
 	else
 		s = num;
 	editText->SetWindowText(s);
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CCalcDlg::OnButton17() 
+{
+	CWnd *editText = GetDlgItem(IDC_EDIT1);
+	CString s;
+	CString c(".");
+	editText->GetWindowText(s);
+	if(s.Find(c) == -1)
+	{
+		s = s + c;
+		editText->SetWindowText(s);
+	}
 	// TODO: Add your control notification handler code here
 	
 }

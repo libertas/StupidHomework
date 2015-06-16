@@ -55,6 +55,7 @@ protected:
 	afx_msg void OnButton13();
 	afx_msg void OnChangeEdit1();
 	afx_msg void OnButton16();
+	afx_msg void OnButton17();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
