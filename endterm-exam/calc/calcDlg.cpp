@@ -106,11 +106,11 @@ void CCalcDlg::OnPaint()
 }
 
 // Functions
-int savedNum = 0;
+double savedNum = 0;
 
 char savedMethod = '+';
 
-int calc(int num)
+double calc(double num)
 {
 	if(savedMethod == '+')
 		return savedNum + num;
@@ -293,7 +293,7 @@ void CCalcDlg::OnButton10()
 	CWnd *editText = GetDlgItem(IDC_EDIT1);
 	CString s;
 	editText->GetWindowText(s);
-	int num = _ttoi(s);
+	double num = atof(s);
 	savedNum = calc(num);
 	savedMethod = '+';
 	CString zero("0");
@@ -307,10 +307,10 @@ void CCalcDlg::OnButton15()
 	CWnd *editText = GetDlgItem(IDC_EDIT1);
 	CString s;
 	editText->GetWindowText(s);
-	int num = _ttoi(s);
+	double num = atof(s);
 	savedNum = calc(num);
 	savedMethod = '=';
-	s.Format(_T("%d"), savedNum);
+	s.Format(_T("%lf"), savedNum);
 	editText->SetWindowText(s);
 	// TODO: Add your control notification handler code here
 	
@@ -321,7 +321,7 @@ void CCalcDlg::OnButton11()
 	CWnd *editText = GetDlgItem(IDC_EDIT1);
 	CString s;
 	editText->GetWindowText(s);
-	int num = _ttoi(s);
+	double num = atof(s);
 	savedNum = calc(num);
 	savedMethod = '-';
 	CString zero("0");
@@ -335,7 +335,7 @@ void CCalcDlg::OnButton12()
 	CWnd *editText = GetDlgItem(IDC_EDIT1);
 	CString s;
 	editText->GetWindowText(s);
-	int num = _ttoi(s);
+	double num = atof(s);
 	savedNum = calc(num);
 	savedMethod = '*';
 	CString zero("0");
@@ -349,7 +349,7 @@ void CCalcDlg::OnButton13()
 	CWnd *editText = GetDlgItem(IDC_EDIT1);
 	CString s;
 	editText->GetWindowText(s);
-	int num = _ttoi(s);
+	double num = atof(s);
 	if(num != 0)
 	{
 		savedNum = calc(num);
@@ -368,7 +368,7 @@ void CCalcDlg::OnChangeEdit1()
 		CWnd *editText = GetDlgItem(IDC_EDIT1);
 		CString s;
 		editText->GetWindowText(s);
-		int num = _ttoi(s);
+		double num = atof(s);
 		savedNum = num;
 	}
 	// TODO: If this is a RICHEDIT control, the control will not
