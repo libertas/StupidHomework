@@ -310,12 +310,15 @@ void CCalcDlg::OnButton15()
 	CString s;
 	editText->GetWindowText(s);
 	double num = atof(s);
-	savedNum = calc(num);
-	savedMethod = '=';
-	s.Format(_T("%lf"), savedNum);
-	s.TrimRight("0");
-	s.TrimRight(".");
-	editText->SetWindowText(s);
+	if(savedMethod != '/' || (savedMethod == '/' && num != 0))
+	{
+		savedNum = calc(num);
+		savedMethod = '=';
+		s.Format(_T("%lf"), savedNum);
+		s.TrimRight("0");
+		s.TrimRight(".");
+		editText->SetWindowText(s);
+	}
 	// TODO: Add your control notification handler code here
 	
 }
