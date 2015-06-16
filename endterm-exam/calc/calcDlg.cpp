@@ -311,7 +311,7 @@ void CCalcDlg::OnButton15()
 	double num = atof(s);
 	savedNum = calc(num);
 	savedMethod = '=';
-	s.Format(_T("%lf"), savedNum);
+	s.Format(_T("%g"), savedNum);
 	editText->SetWindowText(s);
 	// TODO: Add your control notification handler code here
 	
