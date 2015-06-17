@@ -319,6 +319,12 @@ void CCalcDlg::OnButton15()
 		s.TrimRight(".");
 		editText->SetWindowText(s);
 	}
+	else
+	{
+		editText->SetWindowText("ERROR");
+		savedNum = 0;
+		savedMethod = '=';
+	}
 	// TODO: Add your control notification handler code here
 	
 }
