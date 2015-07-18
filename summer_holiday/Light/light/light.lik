@@ -1,0 +1,14 @@
+Version: 3.0
+Options: m37
+Obj: "C:\PROGRA~1\Sunplus\UNSPID~1.2D\startupcode\startupD.obj"
+Obj: "H:\Light\light\Debug\main.obj"
+Obj: "H:\Light\light\Debug\Resource.obj"
+Lib: "C:\Program Files\Sunplus\unSP IDE 2.6.2D\library\CMacro\CMacro1016.lib"
+Output: "H:\Light\light\Debug\light.S37"
+;Locate: unSP_StartUp in "startupD.obj" at 8009 
+;Align: unSP_StartUp in "startupD.obj" with 0 
+;Locate: CODE in "main.obj" at 8026 
+;Align: CODE in "main.obj" with 0 
+;Locate: CODE in "./lshiu2" of "CMacro1016.lib"  at 81E3 
+;Align: CODE in "./lshiu2" of "CMacro1016.lib"  with 0 
+;Locate: __sn_init_table at 8000 

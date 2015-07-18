@@ -1,0 +1,158 @@
+.stabs "startup_code.",0x3c,0,0,0
+.stabs "__sn_main:F15",36,0,0,     32983
+.stabs "__sn_end:F15",36,0,0,     32804
+.stabs "__sn_exception:F15",36,0,0,     32805
+.stabs "D:/Light4/light/",0x64,0,3,     32806
+.stabs "D:/Light4/light/main.c",0x64,0,3,     32806
+.stabs "int:t1=r1;-32768;32767;",128,0,0,0
+.stabs "char:t2=r2;0;127;",128,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",128,0,0,0
+.stabs "unsigned int:t4=r4;0;65535;",128,0,0,0
+.stabs "long unsigned int:t5=r5;0;4294967295;",128,0,0,0
+.stabs "long long int:t6=r6;-2147483648;2147483647;",128,0,0,0
+.stabs "long long unsigned int:t7=r7;0;4294967295;",128,0,0,0
+.stabs "short int:t8=r8;-32768;32767;",128,0,0,0
+.stabs "short unsigned int:t9=r9;0;65535;",128,0,0,0
+.stabs "signed char:t10=r10;-32768;32767;",128,0,0,0
+.stabs "unsigned char:t11=r11;0;65535;",128,0,0,0
+.stabs "float:t12=r1;2;0;",128,0,0,0
+.stabs "double:t13=r1;2;0;",128,0,0,0
+.stabs "long double:t14=r1;2;0;",128,0,0,0
+.stabs "complex int:t15=s2real:1,0,16;imag:1,16,16;;",128,0,0,0
+.stabs "complex float:t16=r16;2;0;",128,0,0,0
+.stabs "complex double:t17=r17;2;0;",128,0,0,0
+.stabs "complex long double:t18=r18;2;0;",128,0,0,0
+.stabs "void:t19=19",128,0,0,0
+.stabs "stop:G1",32,0,0,         1
+.stabs "Delay:F19",36,0,0,     32806
+.stabn 0x44,0,15,         0
+.stabn 0xa6,0,0,1
+.stabn 0x44,0,17,         6
+.stabn 0x44,0,19,        16
+.stabn 0x44,0,17,        19
+.stabn 0x44,0,21,        25
+.stabn 0x44,0,21,        25
+.stabn 0xc0,0,0,         6
+.stabs "uiCount:4",128,0,0,0
+.stabn 0xe0,0,0,        25
+.stabf         28
+.stabs "scanKey:F4",36,0,0,     32834
+.stabn 0x44,0,24,         0
+.stabn 0xa6,0,0,4
+.stabn 0x44,0,30,         7
+.stabn 0x44,0,31,        14
+.stabn 0x44,0,32,        23
+.stabn 0x44,0,33,        27
+.stabn 0x44,0,35,        34
+.stabn 0x44,0,37,        42
+.stabn 0x44,0,39,        47
+.stabn 0x44,0,40,        49
+.stabn 0x44,0,41,        61
+.stabn 0x44,0,42,        70
+.stabn 0x44,0,44,        72
+.stabn 0x44,0,45,        76
+.stabn 0x44,0,45,        76
+.stabs "portName:p2",160,0,0,7
+.stabn 0xc0,0,0,         7
+.stabs "uiData:4",128,0,0,0
+.stabs "uiTemp:4",128,0,0,1
+.stabs "port:20=*4",128,0,0,2
+.stabn 0xe0,0,0,        76
+.stabf         79
+.stabs "delayTime:F19",36,0,0,     32913
+.stabn 0x44,0,48,         0
+.stabn 0xa6,0,0,6
+.stabn 0x44,0,51,         7
+.stabn 0x44,0,53,        27
+.stabn 0x44,0,54,        30
+.stabn 0x44,0,55,        41
+.stabn 0x44,0,57,        52
+.stabn 0x44,0,58,        55
+.stabn 0x44,0,51,        57
+.stabn 0x44,0,61,        67
+.stabn 0x44,0,61,        67
+.stabs "time:p4",160,0,0,9
+.stabn 0xc0,0,0,         7
+.stabs "i:5",128,0,0,0
+.stabs "j:5",128,0,0,2
+.stabs "key:4",128,0,0,4
+.stabn 0xe0,0,0,        67
+.stabf         70
+.stabs "main:F1",36,0,0,     32983
+.stabn 0x44,0,64,         0
+.stabn 0xa6,0,0,3
+.stabn 0x44,0,67,         7
+.stabn 0x44,0,68,         9
+.stabn 0x44,0,70,        12
+.stabn 0x44,0,71,        16
+.stabn 0x44,0,72,        20
+.stabn 0x44,0,74,        23
+.stabn 0x44,0,75,        26
+.stabn 0x44,0,76,        29
+.stabn 0x44,0,78,        32
+.stabn 0x44,0,80,        36
+.stabn 0x44,0,81,        43
+.stabn 0x44,0,83,        50
+.stabn 0x44,0,84,        53
+.stabn 0x44,0,86,        55
+.stabn 0x44,0,87,        58
+.stabn 0x44,0,88,        60
+.stabn 0x44,0,92,        64
+.stabn 0x44,0,94,        81
+.stabn 0x44,0,95,        84
+.stabn 0x44,0,96,        88
+.stabn 0x44,0,97,        91
+.stabn 0x44,0,98,        96
+.stabn 0x44,0,99,       102
+.stabn 0x44,0,100,       104
+.stabn 0x44,0,101,       108
+.stabn 0x44,0,102,       111
+.stabn 0x44,0,103,       116
+.stabn 0x44,0,104,       122
+.stabn 0x44,0,92,       124
+.stabn 0x44,0,107,       141
+.stabn 0x44,0,108,       144
+.stabn 0x44,0,109,       148
+.stabn 0x44,0,110,       151
+.stabn 0x44,0,111,       157
+.stabn 0x44,0,112,       163
+.stabn 0x44,0,114,       165
+.stabn 0x44,0,115,       168
+.stabn 0x44,0,116,       172
+.stabn 0x44,0,117,       175
+.stabn 0x44,0,118,       181
+.stabn 0x44,0,119,       187
+.stabn 0x44,0,121,       189
+.stabn 0x44,0,123,       206
+.stabn 0x44,0,124,       209
+.stabn 0x44,0,125,       213
+.stabn 0x44,0,126,       216
+.stabn 0x44,0,127,       221
+.stabn 0x44,0,128,       227
+.stabn 0x44,0,129,       229
+.stabn 0x44,0,130,       232
+.stabn 0x44,0,131,       235
+.stabn 0x44,0,132,       240
+.stabn 0x44,0,133,       246
+.stabn 0x44,0,121,       248
+.stabn 0x44,0,135,       265
+.stabn 0x44,0,136,       267
+.stabn 0x44,0,137,       270
+.stabn 0x44,0,137,       270
+.stabn 0xc0,0,0,         7
+.stabs "key:4",128,0,0,0
+.stabn 0xc0,0,0,        64
+.stabs "i:1",128,0,0,1
+.stabn 0xe0,0,0,       265
+.stabn 0xe0,0,0,       270
+.stabf        273
+.stabs "D:\Light4\light/", 0x64,0,0,0
+.stabs "D:\Light4\light\Resource.asm", 0x64,0,0,0
+.stabs "unsigned int:t1=r1;0;65535;",128,0,0,0
+.stabs "long long int:t2=r1;-2147483648;2147483647;",128,0,0,0
+.stabs "float:t3=r1;2;0;",128,0,0,0
+.stabs "double:t4=r1;4;0;",128,0,0,0
+.stabn 0xc0,0,0,         0
+.stabn 0xe0,0,0,         0
+.stabn 0xc0,0,0,         0
+.stabn 0xe0,0,0,         0

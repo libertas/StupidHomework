@@ -1,0 +1,149 @@
+.stabs "startup_code.",0x3c,0,0,0
+.stabs "__sn_main:F15",36,0,0,     33111
+.stabs "__sn_end:F15",36,0,0,     32804
+.stabs "__sn_exception:F15",36,0,0,     32805
+.stabs "D:/Light/light/",0x64,0,3,     32806
+.stabs "D:/Light/light/main.c",0x64,0,3,     32806
+.stabs "int:t1=r1;-32768;32767;",128,0,0,0
+.stabs "char:t2=r2;0;127;",128,0,0,0
+.stabs "long int:t3=r3;-2147483648;2147483647;",128,0,0,0
+.stabs "unsigned int:t4=r4;0;65535;",128,0,0,0
+.stabs "long unsigned int:t5=r5;0;4294967295;",128,0,0,0
+.stabs "long long int:t6=r6;-2147483648;2147483647;",128,0,0,0
+.stabs "long long unsigned int:t7=r7;0;4294967295;",128,0,0,0
+.stabs "short int:t8=r8;-32768;32767;",128,0,0,0
+.stabs "short unsigned int:t9=r9;0;65535;",128,0,0,0
+.stabs "signed char:t10=r10;-32768;32767;",128,0,0,0
+.stabs "unsigned char:t11=r11;0;65535;",128,0,0,0
+.stabs "float:t12=r1;2;0;",128,0,0,0
+.stabs "double:t13=r1;2;0;",128,0,0,0
+.stabs "long double:t14=r1;2;0;",128,0,0,0
+.stabs "complex int:t15=s2real:1,0,16;imag:1,16,16;;",128,0,0,0
+.stabs "complex float:t16=r16;2;0;",128,0,0,0
+.stabs "complex double:t17=r17;2;0;",128,0,0,0
+.stabs "complex long double:t18=r18;2;0;",128,0,0,0
+.stabs "void:t19=19",128,0,0,0
+.stabs "clearTimer:F19",36,0,0,     32806
+.stabn 0x44,0,16,         0
+.stabn 0xa6,0,0,0
+.stabn 0x44,0,17,         5
+.stabn 0x44,0,18,         8
+.stabn 0x44,0,19,        11
+.stabn 0x44,0,19,        11
+.stabf         13
+.stabs "Delay:F19",36,0,0,     32819
+.stabn 0x44,0,22,         0
+.stabn 0xa6,0,0,2
+.stabn 0x44,0,24,         7
+.stabn 0x44,0,26,        17
+.stabn 0x44,0,24,        19
+.stabn 0x44,0,28,        25
+.stabn 0x44,0,28,        25
+.stabn 0xc0,0,0,         7
+.stabs "uiCount:4",128,0,0,0
+.stabn 0xe0,0,0,        25
+.stabf         28
+.stabs "KeyScan:F4",36,0,0,     32847
+.stabn 0x44,0,31,         0
+.stabn 0xa6,0,0,3
+.stabn 0x44,0,34,         7
+.stabn 0x44,0,35,        10
+.stabn 0x44,0,37,        15
+.stabn 0x44,0,38,        17
+.stabn 0x44,0,39,        24
+.stabn 0x44,0,40,        33
+.stabn 0x44,0,42,        35
+.stabn 0x44,0,43,        39
+.stabn 0x44,0,43,        39
+.stabn 0xc0,0,0,         7
+.stabs "uiData:4",128,0,0,0
+.stabs "uiTemp:4",128,0,0,1
+.stabn 0xe0,0,0,        39
+.stabf         42
+.stabs "delayMs:F19",36,0,0,     32889
+.stabn 0x44,0,46,         0
+.stabn 0xa6,0,0,1
+.stabn 0x44,0,47,         7
+.stabn 0x44,0,49,        11
+.stabn 0x44,0,50,        14
+.stabn 0x44,0,52,        24
+.stabn 0x44,0,53,        30
+.stabn 0x44,0,55,        33
+.stabn 0x44,0,56,        39
+.stabn 0x44,0,57,        41
+.stabn 0x44,0,58,        43
+.stabn 0x44,0,59,        45
+.stabn 0x44,0,59,        45
+.stabs "millis:p4",160,0,0,4
+.stabf         48
+.stabs "loop:F19",36,0,0,     32937
+.stabn 0x44,0,62,         0
+.stabn 0xa6,0,0,3
+.stabn 0x44,0,66,         7
+.stabn 0x44,0,67,        10
+.stabn 0x44,0,69,        13
+.stabn 0x44,0,70,        17
+.stabn 0x44,0,71,        21
+.stabn 0x44,0,73,        24
+.stabn 0x44,0,74,        27
+.stabn 0x44,0,75,        30
+.stabn 0x44,0,77,        33
+.stabn 0x44,0,79,        37
+.stabn 0x44,0,80,        44
+.stabn 0x44,0,82,        54
+.stabn 0x44,0,83,        56
+.stabn 0x44,0,85,        58
+.stabn 0x44,0,86,        60
+.stabn 0x44,0,88,        62
+.stabn 0x44,0,90,        71
+.stabn 0x44,0,91,        73
+.stabn 0x44,0,92,        77
+.stabn 0x44,0,93,        80
+.stabn 0x44,0,94,        86
+.stabn 0x44,0,95,        90
+.stabn 0x44,0,96,        93
+.stabn 0x44,0,88,        99
+.stabn 0x44,0,99,       105
+.stabn 0x44,0,100,       107
+.stabn 0x44,0,101,       111
+.stabn 0x44,0,102,       114
+.stabn 0x44,0,104,       120
+.stabn 0x44,0,105,       122
+.stabn 0x44,0,106,       126
+.stabn 0x44,0,107,       129
+.stabn 0x44,0,109,       135
+.stabn 0x44,0,111,       144
+.stabn 0x44,0,112,       146
+.stabn 0x44,0,113,       150
+.stabn 0x44,0,114,       153
+.stabn 0x44,0,115,       159
+.stabn 0x44,0,116,       162
+.stabn 0x44,0,109,       165
+.stabn 0x44,0,118,       171
+.stabn 0x44,0,118,       171
+.stabn 0xc0,0,0,         7
+.stabs "i:1",128,0,0,0
+.stabs "uiKey:4",128,0,0,1
+.stabn 0xe0,0,0,       171
+.stabf        174
+.stabs "main:F1",36,0,0,     33111
+.stabn 0x44,0,121,         0
+.stabn 0xa6,0,0,1
+.stabn 0x44,0,122,         7
+.stabn 0x44,0,124,        11
+.stabn 0x44,0,125,        13
+.stabn 0x44,0,126,        15
+.stabn 0x44,0,127,        17
+.stabn 0x44,0,128,        20
+.stabn 0x44,0,128,        20
+.stabf         23
+.stabs "D:\Light\light/", 0x64,0,0,0
+.stabs "D:\Light\light\Resource.asm", 0x64,0,0,0
+.stabs "unsigned int:t1=r1;0;65535;",128,0,0,0
+.stabs "long long int:t2=r1;-2147483648;2147483647;",128,0,0,0
+.stabs "float:t3=r1;2;0;",128,0,0,0
+.stabs "double:t4=r1;4;0;",128,0,0,0
+.stabn 0xc0,0,0,         0
+.stabn 0xe0,0,0,         0
+.stabn 0xc0,0,0,         0
+.stabn 0xe0,0,0,         0

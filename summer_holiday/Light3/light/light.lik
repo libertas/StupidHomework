@@ -1,0 +1,11 @@
+Version: 3.0
+Options: m37
+Obj: "C:\Program Files (x86)\unspIDE\startupcode\startupD.obj"
+Obj: "D:\Light2\light\Debug\main.obj"
+Obj: "D:\Light2\light\Debug\Resource.obj"
+Output: "D:\Light2\light\Debug\light.S37"
+;Locate: unSP_StartUp in "startupD.obj" at 8009 
+;Align: unSP_StartUp in "startupD.obj" with 0 
+;Locate: CODE in "main.obj" at 8026 
+;Align: CODE in "main.obj" with 0 
+;Locate: __sn_init_table at 8000 
