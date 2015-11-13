@@ -42,6 +42,6 @@ public class Task2 {
 	}
 	
 	public static void main(String[] args) {
-		findMoney(10);
+		findMoney(1000);
 	}
 }
