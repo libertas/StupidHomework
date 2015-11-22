@@ -1,6 +1,23 @@
 
+
+
+/**
+ * @author 韦翔晟
+ *
+ */
 public class Task2 {
+	/**
+	 * 总共的可能性
+	 */
 	private static int total = 0;
+	
+	/**
+	 * 递归的函数
+	 * 不断地把5块钱拆分为更小单位以求得不同可能性
+	 * @param f
+	 * @param t
+	 * @param o
+	 */
 	public static void breakMoney(int f, int t, int o) {
 		total++;
 		System.out.printf("5*%d,\t2*%d,\t1*%d.\tTotal:%d Yuan.\n", f, t, o, f*5+t*2+o*1);
@@ -24,6 +41,10 @@ public class Task2 {
 
 	}
 	
+	/**
+	 * 寻找不同可能性的入口函数，做一些递归前的准备工作
+	 * @param money
+	 */
 	public static void findMoney(int money) {
 		int fives = money / 5;
 		int complement = money % 5;
@@ -41,7 +62,11 @@ public class Task2 {
 		System.out.printf("Total probabilities:%d\n", total);
 	}
 	
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		findMoney(1000);
+		findMoney(10);
 	}
 }
