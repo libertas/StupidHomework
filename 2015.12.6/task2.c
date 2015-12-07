@@ -29,18 +29,26 @@ int list_create(struct lnode *head, int *d, int length)
 
 int list_delete(struct lnode *head, int d)
 {
-
-    return 0;
+    struct lnode *p = head, *tmp;
+    while(NULL != p->next) {
+        if(d == p->next->data) {
+            tmp = p->next;
+            p->next = tmp->next;
+            free(tmp);
+            return 0;
+        }
+        p = p->next;
+    }
+    return -1;
 }
 
 int print_list(struct lnode *p)
 {
-    while(p->next != NULL)
-    {
+    while(p->next != NULL) {
         p = p->next;
-        printf("%d\n", p->data);
+        printf("%d\t", p->data);
     }
-
+    putchar('\n');
     return 0;
 }
 
@@ -49,12 +57,14 @@ int main()
     int user_data[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9 ,10};
     struct lnode *h = calloc(1, sizeof(struct lnode));;
 
-    if(0 != list_create(h, user_data, 10))
-    {
+    if(0 != list_create(h, user_data, 10)) {
         printf("Error: cannot allocate memory!\n");
         return -1;
     }
 
+    print_list(h);
+
+    list_delete(h, 8);
     print_list(h);
 
     return 0;
