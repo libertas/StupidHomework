@@ -54,17 +54,35 @@ int print_list(struct lnode *p)
 
 int main()
 {
-    int user_data[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9 ,10};
+    int i, data;
+    int *user_data, length;
     struct lnode *h = calloc(1, sizeof(struct lnode));;
 
-    if(0 != list_create(h, user_data, 10)) {
+    printf("Input the length of the list:");
+    scanf("%d", &length);
+    user_data = calloc(length, sizeof(int));
+    if(NULL == user_data) {
+        printf("Error: cannot allocate memory!\n");
+        return -1;
+    }
+    else {
+        for(i = 0; i < length; i++) {
+            printf("Please input user_data[%d]:", i);
+            scanf("%d", user_data + i);
+        }
+    }
+
+    if(0 != list_create(h, user_data, length)) {
         printf("Error: cannot allocate memory!\n");
         return -1;
     }
 
     print_list(h);
 
-    list_delete(h, 8);
+    printf("Please input which one you want to delete:");
+    scanf("%d", &data);
+
+    list_delete(h, data);
     print_list(h);
 
     return 0;
