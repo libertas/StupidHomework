@@ -42,8 +42,9 @@ int list_delete(struct lnode *head, int d)
     return -1;
 }
 
-int print_list(struct lnode *p)
+int print_list(struct lnode *h)
 {
+    struct lnode * p = h;
     while(p->next != NULL) {
         p = p->next;
         printf("%d\t", p->data);
@@ -56,7 +57,7 @@ int main()
 {
     int i, data;
     int *user_data, length;
-    struct lnode *h = calloc(1, sizeof(struct lnode));;
+    struct lnode *h = calloc(1, sizeof(struct lnode));
 
     printf("Input the length of the list:");
     scanf("%d", &length);
