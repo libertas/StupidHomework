@@ -11,9 +11,10 @@ public class task1 {
 		
 		while(0 != str.length()) {
 			String c = str.substring(0, 1);
-			String tmp = str;
+			int old_len = str.length();
 			str = str.replace(c, "");
-			System.out.printf("%s: %d times", c, tmp.length() - str.length());
+			int new_len = str.length();
+			System.out.printf("%s: %d times", c, old_len - new_len);
 			System.out.println("");
 		}
 	}
