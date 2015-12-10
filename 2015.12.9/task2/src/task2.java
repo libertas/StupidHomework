@@ -26,7 +26,7 @@ public class task2 {
 			}
 			catch (ParseException e1)
 			{
-				System.out.println(e.getMessage());
+				System.out.println(e1.getMessage());
 			}
 		}
 	}
