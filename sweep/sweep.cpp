@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+/*
+    ? unknown
+    Y flag
+    * mine
+*/
+
 class SweepMine
 {
 private:
@@ -8,7 +14,7 @@ private:
     char **mine_map;
 
 public:
-    SweepMine(int width)
+    SweepMine(int width, int mines)
     {
         int i, j;
         this->width = width;
@@ -20,8 +26,15 @@ public:
 
         for(i = 0; i < width; i++) {
             for(j = 0; j < width; j++) {
-                mine_map[i][j] = '*';
+                mine_map[i][j] = '?';
             }
+        }
+
+        if(mines > width * width)
+            mines = width * width;
+
+        while(mines--) {
+            mine_map[rand(width)][rand(width)] = '*';
         }
 
     }
@@ -35,6 +48,10 @@ public:
             }
             cout<<endl;
         }
+    }
+
+    void run()
+    {
     }
 };
 
