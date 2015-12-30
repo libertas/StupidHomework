@@ -38,8 +38,6 @@ char create(BiTree bt)
     } else if('*' == c) {
         free(bt->lc);
         bt->lc = NULL;
-    } else {
-        bt->data = c;
     }
 
     bt->rc = malloc(sizeof(BiTNode));
@@ -48,10 +46,8 @@ char create(BiTree bt)
     if('\n' == c) {
         return '\n';
     } else if('*' == c) {
-        free(bt->lc);
-        bt->lc = NULL;
-    } else {
-        bt->data = c;
+        free(bt->rc);
+        bt->rc = NULL;
     }
 
     return 0;
@@ -65,6 +61,11 @@ int pre_order(BiTree bt)
     if(NULL != bt->rc)
         pre_order(bt->rc);
     return 0;
+}
+
+int in_order(BiTree bt)
+{
+
 }
 
 int main()
