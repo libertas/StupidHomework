@@ -53,16 +53,6 @@ char create(BiTree bt)
     return 0;
 }
 
-int print_value_depth(BiTree bt, unsigned long depth)
-{
-    if(NULL == bt)
-        return 0;
-    printf("%ld %c\n", depth, bt->data);
-    print_value_depth(bt->lc, depth + 1);
-    print_value_depth(bt->rc, depth + 1);
-    return 0;
-}
-
 unsigned long get_node_depth(BiTree bt, char d, unsigned long depth)
 {
     unsigned long found_depth;
