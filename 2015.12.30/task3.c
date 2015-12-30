@@ -53,38 +53,28 @@ char create(BiTree bt)
     return 0;
 }
 
-int pre_order(BiTree bt)
+unsigned long get_total(BiTree bt)
 {
-    if(NULL == bt)
+    if(bt == NULL)
         return 0;
-    printf("%c\n", bt->data);
-    pre_order(bt->lc);
-    pre_order(bt->rc);
-    return 0;
+
+    return get_total(bt->lc) + get_total(bt->rc) + 1;
 }
 
-int in_order(BiTree bt)
+unsigned long get_one_child_num(BiTree bt)
 {
-    if(NULL == bt)
+    int n = 0;
+    if(bt == NULL)
         return 0;
+    if(NULL != bt->lc)
+        n++;
+    if(NULL != bt->rc)
+        n++;
 
-    in_order(bt->lc);
-    printf("%c\n", bt->data);
-    in_order(bt->rc);
-
-    return 0;
-}
-
-int post_order(BiTree bt)
-{
-    if(NULL == bt)
-        return 0;
-
-    post_order(bt->lc);
-    post_order(bt->rc);
-    printf("%c\n", bt->data);
-
-    return 0;
+    if(1 == n)
+        return get_one_child_num(bt->lc) + get_one_child_num(bt->rc) + 1;
+    else
+        return get_one_child_num(bt->lc) + get_one_child_num(bt->rc);
 }
 
 int main()
@@ -95,13 +85,7 @@ int main()
     printf("Input the tree:");
     create(t);
 
-    pre_order(t);
-    putchar('\n');
-
-    in_order(t);
-    putchar('\n');
-
-    post_order(t);
-    putchar('\n');
+    printf("Total:%ld\n", get_total(t));
+    printf("Nodes who has only one child:%ld\n", get_one_child_num(t));
     return 0;
 }

@@ -53,37 +53,13 @@ char create(BiTree bt)
     return 0;
 }
 
-int pre_order(BiTree bt)
+int print_value_depth(BiTree bt, unsigned long depth)
 {
     if(NULL == bt)
         return 0;
-    printf("%c\n", bt->data);
-    pre_order(bt->lc);
-    pre_order(bt->rc);
-    return 0;
-}
-
-int in_order(BiTree bt)
-{
-    if(NULL == bt)
-        return 0;
-
-    in_order(bt->lc);
-    printf("%c\n", bt->data);
-    in_order(bt->rc);
-
-    return 0;
-}
-
-int post_order(BiTree bt)
-{
-    if(NULL == bt)
-        return 0;
-
-    post_order(bt->lc);
-    post_order(bt->rc);
-    printf("%c\n", bt->data);
-
+    printf("%ld %c\n", depth, bt->data);
+    print_value_depth(bt->lc, depth + 1);
+    print_value_depth(bt->rc, depth + 1);
     return 0;
 }
 
@@ -95,13 +71,7 @@ int main()
     printf("Input the tree:");
     create(t);
 
-    pre_order(t);
-    putchar('\n');
+    print_value_depth(t, 1);
 
-    in_order(t);
-    putchar('\n');
-
-    post_order(t);
-    putchar('\n');
     return 0;
 }
