@@ -55,23 +55,52 @@ char create(BiTree bt)
 
 int pre_order(BiTree bt)
 {
+    if(NULL == bt)
+        return 0;
     printf("%c\n", bt->data);
-    if(NULL != bt->lc)
-        pre_order(bt->lc);
-    if(NULL != bt->rc)
-        pre_order(bt->rc);
+    pre_order(bt->lc);
+    pre_order(bt->rc);
     return 0;
 }
 
 int in_order(BiTree bt)
 {
+    if(NULL == bt)
+        return 0;
 
+    in_order(bt->lc);
+    printf("%c\n", bt->data);
+    in_order(bt->rc);
+
+    return 0;
+}
+
+int post_order(BiTree bt)
+{
+    if(NULL == bt)
+        return 0;
+
+    post_order(bt->lc);
+    post_order(bt->rc);
+    printf("%c\n", bt->data);
+
+    return 0;
 }
 
 int main()
 {
-    BiTree t = init();
+    BiTree t;
+    t = init();
+
     create(t);
+
     pre_order(t);
+    putchar('\n');
+
+    in_order(t);
+    putchar('\n');
+
+    post_order(t);
+    putchar('\n');
     return 0;
 }
