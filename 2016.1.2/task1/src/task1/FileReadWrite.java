@@ -2,12 +2,13 @@ package task1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileReadWrite {
+	private static Scanner s;
+
 	public static void main (String arg[]) {
 		File f = new File("file.txt");
 		if(f.exists() == false) {
@@ -27,7 +28,7 @@ public class FileReadWrite {
 		}
 		
 		System.out.println("Please input some words:");
-		Scanner s = new Scanner(System.in);
+		s = new Scanner(System.in);
 		
 		String data = s.nextLine();
 		
