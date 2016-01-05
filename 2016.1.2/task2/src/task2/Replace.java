@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -18,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 public class Replace {
+	private static JTextArea editor;
+	private static Scanner s = null;;
+	
 	public static void main(String[] arg) {
 		JFrame app = new JFrame("Editor");
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,12 +50,18 @@ public class Replace {
 					}
 				}
 				
-
 				try {
-					Scanner s = new Scanner(f);
+					s = new Scanner(f);
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}
+				
+				String data = "";
+				while(s.hasNextLine()) {
+					data = data + s.nextLine();
+				}
+				
+				editor.setText(data);
 			}
 			
 		});
@@ -59,7 +69,7 @@ public class Replace {
 		
 		c.add(new JLabel("Old string:"));
 		
-		JTextField old_str_editor = new JTextField("", 25);
+		final JTextField old_str_editor = new JTextField("", 25);
 		c.add(old_str_editor);
 		
 		JButton save_button = new JButton("Save");
@@ -67,6 +77,25 @@ public class Replace {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				File f = new File(path_editor.getText());
+				if(f.exists() == false) {
+					try {
+						f.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+
+				PrintWriter pw = null;
+				try {
+					pw = new PrintWriter(f);
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				pw.print(editor.getText());
+				
+				pw.close();
 			}
 			
 		});
@@ -74,7 +103,7 @@ public class Replace {
 		
 		c.add(new JLabel("New string:"));
 		
-		JTextField new_str_editor = new JTextField("", 25);
+		final JTextField new_str_editor = new JTextField("", 25);
 		c.add(new_str_editor);
 		
 		JButton replace_button = new JButton("Replace");
@@ -82,13 +111,15 @@ public class Replace {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				String data = editor.getText();
+				data = data.replaceAll(old_str_editor.getText(), new_str_editor.getText());
+				editor.setText(data);
 			}
 			
 		});
 		c.add(replace_button);
 		
-		JTextArea editor = new JTextArea("", 20, 20);
+		editor = new JTextArea("", 20, 20);
 		editor.setBorder(new LineBorder(Color.black));
 		c.add(editor);
 		
