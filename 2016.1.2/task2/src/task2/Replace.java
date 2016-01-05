@@ -5,6 +5,10 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +29,7 @@ public class Replace {
 		
 		c.add(new JLabel("Path:"));
 		
-		JTextField path_editor = new JTextField("", 30);
+		final JTextField path_editor = new JTextField("", 30);
 		c.add(path_editor);
 		
 		JButton path_button = new JButton("Open");
@@ -33,7 +37,21 @@ public class Replace {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				File f = new File(path_editor.getText());
+				if(f.exists() == false) {
+					try {
+						f.createNewFile();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
 				
+
+				try {
+					Scanner s = new Scanner(f);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
 			}
 			
 		});
@@ -41,16 +59,26 @@ public class Replace {
 		
 		c.add(new JLabel("Old string:"));
 		
-		JTextField old_str_editor = new JTextField("", 35);
+		JTextField old_str_editor = new JTextField("", 25);
 		c.add(old_str_editor);
+		
+		JButton save_button = new JButton("Save");
+		save_button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+			}
+			
+		});
+		c.add(save_button);
 		
 		c.add(new JLabel("New string:"));
 		
 		JTextField new_str_editor = new JTextField("", 25);
 		c.add(new_str_editor);
 		
-		JButton save_button = new JButton("Replace");
-		save_button.addActionListener(new ActionListener() {
+		JButton replace_button = new JButton("Replace");
+		replace_button.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -58,7 +86,7 @@ public class Replace {
 			}
 			
 		});
-		c.add(save_button);
+		c.add(replace_button);
 		
 		JTextArea editor = new JTextArea("", 20, 20);
 		editor.setBorder(new LineBorder(Color.black));
