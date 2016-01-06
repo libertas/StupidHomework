@@ -85,6 +85,26 @@ class Pentagon extends JFrame{
 	public void paint(Graphics g)
 	{ 
 		g.setColor(Color.black);
+		
+		int x1, x2, x3, x4, x5;
+		int y1, y2, y3, y4, y5;
+		int cx = edge * 2, cy = edge * 2;
+		x1 = cx;
+		y1 = (int) (cy - edge * Math.sqrt(3) / 2);
+		x2 = cx - edge;
+		y2 = cy;
+		x3 = cx - edge / 2;
+		y3 = (int) (cy + edge * Math.sqrt(3) / 2);
+		x4 = 2 * cx - x2;
+		y4 = y2;
+		x5 = 2 * cx - x3;
+		y5 = y3;
+		
+		g.drawLine(x1, y1, x2, y2);
+		g.drawLine(x3, y3, x2, y2);
+		g.drawLine(x1, y1, x4, y4);
+		g.drawLine(x4, y4, x5, y5);
+		g.drawLine(x3, y3, x5, y5);
 	}
 	public Pentagon(int edge) {
 		this.setVisible(true);
