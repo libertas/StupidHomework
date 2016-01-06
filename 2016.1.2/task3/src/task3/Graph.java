@@ -34,49 +34,62 @@ class Circle extends JFrame{
 class Triangle extends JFrame{
 
 	private static final long serialVersionUID = 2L;
-	private int r;
+	private int edge;
 	
 	public void paint(Graphics g)
 	{ 
 		g.setColor(Color.black);
+		
+		int x1, y1, x2, y2, x3, y3;
+		int cx = 2 * edge, cy = 2 * edge;
+		x1 = cx - edge / 2;
+		y1 = cy;
+		x2 = cx + edge / 2;
+		y2 = cy;
+		x3 = cx;
+		y3 = (int) (cy - edge * Math.sqrt(3) / 2);
+		
+		g.drawLine(x1, y1, x2, y2);
+		g.drawLine(x1, y1, x3, y3);
+		g.drawLine(x3, y3, x2, y2);
 	}
-	public Triangle(int r) {
+	public Triangle(int edge) {
 		this.setVisible(true);
-		this.setSize(r * 2, r * 2);
-		this.r = r;
+		this.setSize(edge * 4, edge * 4);
+		this.edge = edge;
 	}
 }
 
 class Rectangle extends JFrame{
 
 	private static final long serialVersionUID = 3L;
-	private int r;
+	private int edge;
 	
 	public void paint(Graphics g)
 	{ 
 		g.setColor(Color.black);
-		g.drawRect(r / 2, r / 2, r, r);
+		g.drawRect(edge, edge, edge * 2, edge * 2);
 	}
-	public Rectangle(int r) {
+	public Rectangle(int edge) {
 		this.setVisible(true);
-		this.setSize(r * 2, r * 2);
-		this.r = r;
+		this.setSize(edge * 4, edge * 4);
+		this.edge = edge;
 	}
 }
 
 class Pentagon extends JFrame{
 
 	private static final long serialVersionUID = 4L;
-	private int r;
+	private int edge;
 	
 	public void paint(Graphics g)
 	{ 
 		g.setColor(Color.black);
 	}
-	public Pentagon(int r) {
+	public Pentagon(int edge) {
 		this.setVisible(true);
-		this.setSize(r * 2, r * 2);
-		this.r = r;
+		this.setSize(edge * 4, edge * 4);
+		this.edge = edge;
 	}
 }
 public class Graph {
@@ -108,20 +121,20 @@ public class Graph {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int r = Integer.valueOf(r_editor.getText());
+				int argument = Integer.valueOf(r_editor.getText());
 				String type = (String) cb.getSelectedItem();
 				switch(type) {
 				case "Circle":
-					new Circle(r);
+					new Circle(argument);
 					break;
 				case "Rectangle":
-					new Rectangle(r);
+					new Rectangle(argument);
 					break;
 				case "Triangle":
-					new Triangle(r);
+					new Triangle(argument);
 					break;
 				case "Pentagon":
-					new Pentagon(r);
+					new Pentagon(argument);
 					break;
 				}
 			}
