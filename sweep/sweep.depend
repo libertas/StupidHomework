@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1452156184 source:/home/libertas/Develop/StupidHomework/sweep/main.cpp
+	<iostream>
+	<cstdlib>
+

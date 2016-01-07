@@ -44,10 +44,9 @@ public:
         this->running = true;
     }
 
-    unsigned int find_number(const unsigned int i0, const unsigned int j0)
+    char find_number(const unsigned int i, const unsigned int j)
     {
         unsigned int result = 0;
-        unsigned int i, j;
 
         if(mine_map[(i + 1) % width][j].has_mine) {
             result++;
@@ -87,19 +86,25 @@ public:
     void print_map(bool print_mine)
     {
         int i, j;
+        char tmp_map[width][width] = {0};
+
         for(i = 0; i < width; i++) {
             for(j = 0; j < width; j++) {
                 if(mine_map[i][j].has_flag) {
-                    cout<<"P\t";
+                    tmp_map[i][j] = 'P';
+                } else if(print_mine && mine_map[i][j].has_mine) {
+                    tmp_map[i][j] = 'M';
                 } else if(mine_map[i][j].is_known) {
-                    cout<<find_number(i, j)<<'\t';
+                    tmp_map[i][j] = (char)find_number(i, j) + 48;
                 } else {
-                    if(print_mine && mine_map[i][j].has_mine) {
-                        cout<<"M\t";
-                        continue;
-                    }
-                    cout<<"*\t";
+                    tmp_map[i][j] = '*';
                 }
+            }
+        }
+
+        for(i = 0; i < width; i++) {
+            for(j = 0; j < width; j++) {
+                cout<<tmp_map[i][j]<<'\t';
             }
             cout<<endl;
         }
@@ -113,14 +118,14 @@ public:
         while(this->running) {
             print_map(false);
 
-            cout<<"Please input the command(F for flag and x in general):";
+            cout<<"Please input the command(f for flag and x in general):";
             cin>>cmd;
 
             switch(cmd) {
                 default:
                     cout<<"Wrong command!"<<endl;
                     continue;
-                case 'F':
+                case 'f':
                     cout<<"i:";
                     cin>>i;
                     cout<<"j:";
@@ -134,10 +139,21 @@ public:
                     cout<<"j:";
                     cin>>j;
 
-                    //mine_map[i][j].is_known = true;
+                    mine_map[i][j].is_known = true;
                     break;
             }
+
+            for(i = 0; i < width; i++) {
+                for(j = 0; j < width; j++) {
+                    if(mine_map[i][j].has_mine && mine_map[i][j].is_known) {
+                        this->running = false;
+                    }
+                }
+            }
         }
+
+        print_map(true);
+        cout<<"The game is end"<<endl;
     }
 };
 
