@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -115,25 +117,43 @@ class Pentagon extends JFrame{
 public class Graph {
 	
 	private static int width = 500;
-	private static int height = 500;
+	private static int height = 200;
 	
 	private static JTextField r_editor;
 	
 	public static void main(String[] args) {
-		JFrame app = new JFrame("Editor");
+		JFrame app = new JFrame("Graphics");
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		app.setSize(height, width);
+		app.setSize(width, height);
 		
 		final Container c = app.getContentPane();
 		c.setLayout(new FlowLayout());
 		
-		c.add(new JLabel("Argument:"));
+		final JLabel lb = new JLabel("Radius:"); 
+		c.add(lb);
 		
-		r_editor = new JTextField(30);
+		r_editor = new JTextField(35);
 		c.add(r_editor);
 		
 		String[] cb_values = {"Circle", "Rectangle", "Triangle", "Pentagon"}; 
 		final JComboBox<String> cb = new JComboBox<String>(cb_values);
+		cb.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				switch((String)cb.getSelectedItem()) {
+				case "Circle":
+					lb.setText("Radius");
+					break;
+				case "Rectangle":
+				case "Triangle":
+				case "Pentagon":
+					lb.setText("Edge");
+					break;
+				}
+			}
+			
+		});
 		c.add(cb);
 		
 		JButton plot_button = new JButton("Plot");
