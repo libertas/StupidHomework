@@ -25,7 +25,7 @@ public class Replace {
 	public static void main(String[] arg) {
 		JFrame app = new JFrame("Editor");
 		app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		app.setSize(500, 500);
+		app.setSize(500, 670);
 		
 		Container c = app.getContentPane();
 		c.setLayout(new FlowLayout());
@@ -119,7 +119,7 @@ public class Replace {
 		});
 		c.add(replace_button);
 		
-		editor = new JTextArea("", 20, 20);
+		editor = new JTextArea("", 35, 40);
 		editor.setBorder(new LineBorder(Color.black));
 		c.add(editor);
 		
