@@ -25,10 +25,16 @@ class Circle extends JFrame{
 	{ 
 		g.setColor(Color.black);
 		g.drawOval(r / 2, r / 2, r, r);
+		g.drawString("Acreage=" + String.valueOf((int)getAcreage()), 5, r * 2);
 	}
+	
+	public double getAcreage() {
+		return Math.PI * r * r;
+	}
+	
 	public Circle(int r) {
 		this.setVisible(true);
-		this.setSize(r * 2, r * 2);
+		this.setSize(r * 2, r * 2 + 5);
 		this.r = r;
 	}
 }
@@ -54,10 +60,17 @@ class Triangle extends JFrame{
 		g.drawLine(x1, y1, x2, y2);
 		g.drawLine(x1, y1, x3, y3);
 		g.drawLine(x3, y3, x2, y2);
+		
+		g.drawString("Acreage=" + String.valueOf((int)getAcreage()), 5, edge * 4);
 	}
+	
+	public double getAcreage() {
+		return edge * edge * Math.sin(Math.PI / 3);
+	}
+	
 	public Triangle(int edge) {
 		this.setVisible(true);
-		this.setSize(edge * 4, edge * 4);
+		this.setSize(edge * 4, edge * 4 + 5);
 		this.edge = edge;
 	}
 }
@@ -71,10 +84,17 @@ class Rectangle extends JFrame{
 	{ 
 		g.setColor(Color.black);
 		g.drawRect(edge, edge, edge * 2, edge * 2);
+		
+		g.drawString("Acreage=" + String.valueOf((int)getAcreage()), 5, edge * 4);
 	}
+	
+	public double getAcreage() {
+		return edge * edge;
+	}
+	
 	public Rectangle(int edge) {
 		this.setVisible(true);
-		this.setSize(edge * 4, edge * 4);
+		this.setSize(edge * 4, edge * 4 + 5);
 		this.edge = edge;
 	}
 }
@@ -107,10 +127,17 @@ class Pentagon extends JFrame{
 		g.drawLine(x1, y1, x4, y4);
 		g.drawLine(x4, y4, x5, y5);
 		g.drawLine(x3, y3, x5, y5);
+		
+		g.drawString("Acreage=" + String.valueOf((int)getAcreage()), 5, edge * 4);
 	}
+	
+	public double getAcreage() {
+		return (5 / 4) * (edge * edge) * Math.tan(54 * Math.PI / 180);
+	}
+	
 	public Pentagon(int edge) {
 		this.setVisible(true);
-		this.setSize(edge * 4, edge * 4);
+		this.setSize(edge * 4, edge * 4 + 10);
 		this.edge = edge;
 	}
 }
