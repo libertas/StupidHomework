@@ -87,7 +87,7 @@ public:
 
     void print_map(bool print_mine)
     {
-        int i, j;
+        unsigned int i, j;
         char tmp_map[width][width] = {0};
 
         for(i = 0; i < width; i++) {
@@ -160,6 +160,7 @@ public:
                         if(mine_map[i][j].has_flag) {
                             unflagged_mines--;
                             if(unflagged_mines == 0) {
+                                this->running = false;
                                 cout<<"You are win!"<<endl;
                             }
                         }
@@ -175,7 +176,7 @@ public:
 
 int main()
 {
-    SweepMine *s = new SweepMine(9, 9);
+    SweepMine *s = new SweepMine(9, 1);
     s->run();
     return 0;
 }
