@@ -11,15 +11,17 @@ struct map_node {
 class SweepMine
 {
 private:
-    int width;
+    unsigned int width;
+    unsigned int mines;
     struct map_node **mine_map;
     bool running;
 
 public:
-    SweepMine(int width, int mines)
+    SweepMine(const unsigned int width, unsigned int mines)
     {
-        int i, j;
+        unsigned int i, j;
         this->width = width;
+        this->mines = mines;
         mine_map = new struct map_node *[width];
 
         for(i = 0; i < width; i++) {
@@ -113,6 +115,7 @@ public:
     void run()
     {
         unsigned int i, j;
+        unsigned int unflagged_mines = mines;
         char cmd;
 
         while(this->running) {
@@ -139,14 +142,27 @@ public:
                     cout<<"j:";
                     cin>>j;
 
-                    mine_map[i][j].is_known = true;
+                    if(mine_map[i][j].has_flag == false)
+                        mine_map[i][j].is_known = true;
+                    else
+                        cout<<"The position is flagged!"<<endl;
                     break;
             }
 
             for(i = 0; i < width; i++) {
                 for(j = 0; j < width; j++) {
-                    if(mine_map[i][j].has_mine && mine_map[i][j].is_known) {
-                        this->running = false;
+                    if(mine_map[i][j].has_mine) {
+                        if(mine_map[i][j].is_known) {
+                            this->running = false;
+                            cout<<"You are lost!"<<endl;
+                        }
+
+                        if(mine_map[i][j].has_flag) {
+                            unflagged_mines--;
+                            if(unflagged_mines == 0) {
+                                cout<<"You are win!"<<endl;
+                            }
+                        }
                     }
                 }
             }
