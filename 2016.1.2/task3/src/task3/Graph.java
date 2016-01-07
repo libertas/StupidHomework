@@ -92,11 +92,11 @@ class Pentagon extends JFrame{
 		int y1, y2, y3, y4, y5;
 		int cx = edge * 2, cy = edge * 2;
 		x1 = cx;
-		y1 = (int) (cy - edge * Math.sqrt(3) / 2);
-		x2 = cx - edge;
-		y2 = cy;
+		y1 = (int) (cy - (edge / 2 / Math.cos(54.0 / 180 * Math.PI)));
+		x2 = (int) (cx - (edge / 2 / Math.cos(54.0 / 180 * Math.PI)) * Math.sin(72.0 / 180 * Math.PI));
+		y2 = (int) (cy - (edge / 2 / Math.cos(54.0 / 180 * Math.PI)) * Math.cos(72.0 / 180 * Math.PI));
 		x3 = cx - edge / 2;
-		y3 = (int) (cy + edge * Math.sqrt(3) / 2);
+		y3 = (int) (cy + edge / 2 * Math.tan(54.0 / 180 * Math.PI));
 		x4 = 2 * cx - x2;
 		y4 = y2;
 		x5 = 2 * cx - x3;
