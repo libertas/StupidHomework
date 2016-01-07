@@ -134,13 +134,23 @@ public:
                     cout<<"j:";
                     cin>>j;
 
-                    mine_map[i][j].has_flag = true;
+                    if(i < width && j < width) {
+                        mine_map[i][j].has_flag = !mine_map[i][j].has_flag;
+                    } else {
+                        cout<<"The number is too large"<<endl;
+                        continue;
+                    }
                     break;
                 case 'x':
                     cout<<"i:";
                     cin>>i;
                     cout<<"j:";
                     cin>>j;
+
+                    if(i >= width || j >= width) {
+                        cout<<"The number is too large"<<endl;
+                        continue;
+                    }
 
                     if(mine_map[i][j].has_flag == false)
                         mine_map[i][j].is_known = true;
@@ -176,7 +186,14 @@ public:
 
 int main()
 {
-    SweepMine *s = new SweepMine(9, 1);
+    unsigned int width, mines;
+    SweepMine *s;
+    cout<<"Starting the game"<<endl;
+    cout<<"Please input the width of the map:";
+    cin>>width;
+    cout<<"Please input the number of mines:";
+    cin>>mines;
+    s = new SweepMine(width, mines);
     s->run();
     return 0;
 }
