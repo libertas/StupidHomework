@@ -165,6 +165,7 @@ public:
                         if(mine_map[i][j].is_known) {
                             this->running = false;
                             cout<<"You are lost!"<<endl;
+                            continue;
                         }
 
                         if(mine_map[i][j].has_flag) {
@@ -172,6 +173,7 @@ public:
                             if(unflagged_mines == 0) {
                                 this->running = false;
                                 cout<<"You are win!"<<endl;
+                                continue;
                             }
                         }
                     }
