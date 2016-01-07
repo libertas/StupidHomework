@@ -69,7 +69,7 @@ public class Replace {
 		
 		c.add(new JLabel("Old string:"));
 		
-		final JTextField old_str_editor = new JTextField("", 25);
+		final JTextField old_str_editor = new JTextField("", 27);
 		c.add(old_str_editor);
 		
 		JButton save_button = new JButton("Save");
