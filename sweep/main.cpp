@@ -88,7 +88,10 @@ public:
     void print_map(bool print_mine)
     {
         unsigned int i, j;
-        char tmp_map[width][width] = {0};
+        char **tmp_map = new char *[width];
+        for(i = 0; i < width; i++) {
+            tmp_map[i] = new char[width];
+        }
 
         for(i = 0; i < width; i++) {
             for(j = 0; j < width; j++) {
@@ -193,7 +196,7 @@ int main()
     cout<<"Starting the game"<<endl;
     cout<<"Please input the width of the map:";
     cin>>width;
-    cout<<"Please input the number of mines:";
+    cout<<"Please input the max number of mines:";
     cin>>mines;
     s = new SweepMine(width, mines);
     s->run();
